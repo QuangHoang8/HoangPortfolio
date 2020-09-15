@@ -45,41 +45,14 @@ function animateNumber(
   }
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
-  var aboutEl = $("div.skill"),
-    aboutElOffset = aboutEl.offset().top / 2,
+  var statsEl = $("div.stats"),
+    statsElOffset = statsEl.offset().top / 2,
     documentEl = $(document);
 
   documentEl.on("scroll", function () {
-    if (documentEl.scrollTop() > aboutElOffset) {
-      animateNumber(80, 3000, 0, function (number) {
-        const formattedNumber = number.toLocaleString();
-        document.getElementById("html-count").innerText = formattedNumber;
-      });
-      animateNumber(95, 3000, 0, function (number) {
-        const formattedNumber = number.toLocaleString();
-        document.getElementById("js-count").innerText = formattedNumber;
-      });
-
-      animateNumber(75, 3000, 0, function (number) {
-        const formattedNumber = number.toLocaleString();
-        document.getElementById("photoshop-count").innerText = formattedNumber;
-      });
-      animateNumber(85, 3000, 0, function (number) {
-        const formattedNumber = number.toLocaleString();
-        document.getElementById("python-count").innerText = formattedNumber;
-      });
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  var aboutEl = $("div.stats"),
-    aboutElOffset = aboutEl.offset().top / 2,
-    documentEl = $(document);
-
-  documentEl.on("scroll", function () {
-    if (documentEl.scrollTop() > aboutElOffset) {
+    if (documentEl.scrollTop() > statsElOffset) {
       animateNumber(500, 3000, 0, function (number) {
         const formattedNumber = number.toLocaleString();
         document.getElementById("client-count").innerText = formattedNumber;

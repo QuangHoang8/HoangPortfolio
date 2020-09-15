@@ -142,8 +142,7 @@ img {
   display: block;
   height: 2px;
   background: #0094fc;
-  width: 30px;
-  -webkit-transition: all 0.3s;
+  width: 40px;
   transition: all 0.3s;
 }
 
@@ -365,7 +364,7 @@ img {
   grid-template: auto/60% 40%;
 }
 .timeLine {
-  grid-template: 1fr 60px 1fr 100px / 1fr 1fr 1fr 30px 30px 1fr 1fr 1fr;
+  grid-template: 1fr 58px 1fr 100px / 1fr 1fr 1fr 30px 30px 1fr 1fr 1fr;
   column-gap: 10px;
 }
 .timeLine-item1 {
@@ -406,8 +405,8 @@ img {
   width: 40px;
   height: 40px;
   position: absolute;
-  top: -8px;
-  left: 5px;
+  top: -9px;
+  left: 6px;
   border: 0.5px solid;
   transform: rotate(45deg);
 }
@@ -890,8 +889,7 @@ figure.snip1477.hover figcaption {
   height: 50px;
   font-size: 15px;
   border-style: none;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
+  font-family: "Times New Roman", Times, serif;
 }
 button {
   width: 150px;
@@ -899,6 +897,7 @@ button {
   border-radius: 20px;
   background-color: #a1b3a4;
   color: white;
+  cursor: pointer;
 }
 button:hover {
   transform: translateY(-3px);
@@ -906,29 +905,29 @@ button:hover {
 }
 
 .flex-column .comment {
-  height: 200px;
-
-  /* outline: none; */
-}
-.flex-column .comment::placeholder {
-  padding-top: 0px;
+  border: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  color: gray;
 }
 input:focus {
   outline: none;
-  border: 1px solid burlywood;
-  box-shadow: 0 0 0 2px burlywood;
 }
 input[type="email"]:not(:placeholder-shown):invalid {
   border: 1px solid red;
   box-shadow: 0 0 0 2px red;
 }
+input[type="email"]:not(:placeholder-shown):invalid
+  + .input-border-bottom::before {
+  width: 0;
+}
 input[type="email"]:not(:placeholder-shown):valid {
   border: 1px solid greenyellow;
   box-shadow: 0 0 0 2px greenyellow;
 }
-input:not(:placeholder-shown) {
-  border: 1px solid#a1b3a4;
-  box-shadow: 0 0 0 2px #a1b3a4;
+input[type="email"]:not(:placeholder-shown):invalid
+  + .input-border-bottom::before {
+  width: 0;
 }
 .footer {
   padding-bottom: 50px;
@@ -938,9 +937,47 @@ input:not(:placeholder-shown) {
   margin-left: 50px;
   color: #a1b3a4;
 }
+.color-a1b3a4{
+  color: #a1b3a4;
+}
 .margin-left30 {
   margin-left: 30px;
 }
 .margin-left25 {
   margin-left: 25px;
+}
+.input-border-bottom {
+  position: relative;
+  display: block;
+  width: 600px;
+  height: 1px;
+  background-color: gray;
+}
+.input-border-bottom::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    #0ea6c8,
+    #80c85f,
+    #0ea6c8,
+    #80c85f
+  );
+  transition: all 0.6s;
+}
+input:focus + .input-border-bottom::before {
+  width: 100%;
+  transition: all 0.6s;
+}
+.comment:focus {
+  outline: none;
+}
+.comment:focus + .input-border-bottom::before {
+  width: 100%;
+  transition: all 0.6s;
 }
